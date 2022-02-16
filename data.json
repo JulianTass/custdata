@@ -1,0 +1,21 @@
+{
+    "customers":
+              [
+                {
+                    "customerNo": "34",
+                    "first_name":"Roe",
+                    "last_name": "Rogan",
+                    "DOB":"11/04/1991",
+                    "AccountNo":454545
+                },
+                {
+                    "customerNo": "35",
+                    "first_name":"Roe",
+                    "last_name": "Rogan",
+                    "DOB":"11/04/1991",
+                    "AccountNo":454545
+                }
+
+            ]
+
+}

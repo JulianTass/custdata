@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+    <script>
+      window.onload = function () {
+
+        const myform = document.getElementById("webform");
+        const customerNo = document.getElementById("input_custNo");
+        customerNo.value =  Math.floor((Math.random() * 100) + 1);
+
+        myform.addEventListener("submit", function(e){
+        e.preventDefault();
+        
+        const formData = new FormData(myform);
+        const plainFormData = Object.fromEntries(formData.entries());
+        const formDataJsonString = JSON.stringify(plainFormData);
+
+        console.log(formDataJsonString);
+      
+        const response = fetch('http://localhost:3000/api/addcustomers', {
+        method: 'POST',
+        headers: {"Content-Type": "application/json",
+                  "Accept": "application/json"},
+        body:  formDataJsonString,
+        });
+     });
+      
+      }
+   </script>
+    
+<body>
+
+<h1>Web Form</h1>
+<table>
+    <form id="webform" method="post" enctype="multipart/form-data"  >
+        <tr>
+            <td><label for="customerNo" name>CustomerNo</label></td>
+            <td><input type="text" name="customerNo" id="input_custNo"></td>
+        </tr> 
+        
+        <tr>
+            <td><label for="fname">First Name:</label></td>
+            <td><input type="text" name="first_name" id="input_fname"></td>
+        </tr> 
+        <tr>
+            <td><label for="lname">Last Name:</label></td>
+            <td><input type="text" name="last_name" id="input_lname" value=""></td>
+        </tr> 
+        <tr>
+            <td><label for="lname">DOB:</label></td>
+            <td><input type="date" name="DOB" id="input_DOB" value=""></td>
+        </tr> 
+        <tr>
+            <td><label for="Account">Account No:</label></td>
+            <td><input type="text" name="AccountNo" id="input_ACC" value=""></td>
+        </tr> 
+        <tr>
+            <td><input type="submit" name="submit_btn" value="Submit" ></label></td>
+           
+        </tr> 
+
+    </form>
+
+
+
+</table>
+
+
+ 
+
+</body>
+</html>
